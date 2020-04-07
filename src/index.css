@@ -5,6 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: url('/image/planner.jpg') no-repeat;
+  background-size: 100%;
+   background-position: bottom; */
+  background-color: burlywood; 
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button, form h5 {
+  margin: 20px 0;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+  border-color: darkslateblue;
+  box-shadow: none;
 }
 
 code {
