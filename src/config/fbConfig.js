@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA5xmb13PQi4V3LEueSrS6_hZXb0e_nXKU",
+    apiKey: 'AIzaSyA5xmb13PQi4V3LEueSrS6_hZXb0e_nXKU',
     authDomain: "my-planner-a94aa.firebaseapp.com",
     databaseURL: "https://my-planner-a94aa.firebaseio.com",
     projectId: "my-planner-a94aa",
