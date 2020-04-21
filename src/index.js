@@ -15,34 +15,34 @@ fbConfig.firestore();
 
 const store = createStore(rootReducer,  compose(
     applyMiddleware(thunk.withExtraArgument({ getFirestore })),
-    reduxFirestore(fbConfig),
+    reduxFirestore(fbConfig)
   ));
   
   
   const rrfConfig = {
     userProfile: 'users',
+    // attachAuthIsReady: true,
     useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
   }
 
   const rrfProps = {
     firebase: fbConfig,
     config: rrfConfig,
-    attachAuthIsReady: true,
     dispatch: store.dispatch,
     createFirestoreInstance // <- needed if using firestore
   }
 
  
-    ReactDOM.render(
+  ReactDOM.render(
   
-      <Provider store={store}>
-        <ReactReduxFirebaseProvider {...rrfProps}>
-          <App />
-        </ReactReduxFirebaseProvider>
-      </Provider>,
-   
-    document.getElementById('root')
-  );
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
+    </Provider>,
+ 
+  document.getElementById('root')
+);
 
 
 // If you want your app to work offline and load faster, you can change
