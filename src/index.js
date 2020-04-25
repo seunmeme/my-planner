@@ -8,8 +8,9 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { getFirestore, reduxFirestore, createFirestoreInstance } from 'redux-firestore';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig';
+import { useSelector } from "react-redux";
 
 fbConfig.firestore();
 
@@ -32,12 +33,18 @@ const store = createStore(rootReducer,  compose(
     createFirestoreInstance // <- needed if using firestore
   }
 
+  const AuthIsLoaded = ({ children }) => {
+    const auth = useSelector(state => state.firebase.auth);
+    return isLoaded(auth) ? children : null
+  }
  
   ReactDOM.render(
   
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <App />
+        <AuthIsLoaded>
+          <App />
+        </AuthIsLoaded>
       </ReactReduxFirebaseProvider>
     </Provider>,
  
